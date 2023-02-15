@@ -19,18 +19,4 @@ while True:
     if msg.error():
         print("Consumer error: {}".format(msg.error()))
         continue
-    
-     # Admin Email
-    send_mail(
-        subject='An Order has been completed',
-        message='Order #' + str(order.id) + 'with a total of $' + str(order.admin_revenue) + ' has been completed!',
-        from_email='from@email.com',
-        recipient_list=['admin@admin.com']
-    )
-
-    send_mail(
-        subject='An Order has been completed',
-        message='You earned $' + str(order.ambassador_revenue) + ' from the link #' + order.code,
-        from_email='from@email.com',
-        recipient_list=[order.ambassador_email]
-    )
+    print("Received message: {}".format(msg.value()))
